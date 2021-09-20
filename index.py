@@ -98,7 +98,7 @@ def ResultOut3(j):
         print("E")   
 
 def Q4():
-	name = "2000102_NguyenVanA_3A.png"
+	name = "2000404_NguyenQuangHao_3A.png"
 	img = cv2.imread('Data/' + name)
 	img = cv2.resize(img, (600, 800))
 	for i in range(0,6):
@@ -216,15 +216,19 @@ def Q5_6():
 	print("The 3 hardest questions are : ")
 	count = 0
 	j = 0;
+	print(Q)
+	print(Q_s)
 
 	for i in range(0,3):
-	    while j<len(Q_s):
-	        if Q[i] == Q_s[j]:
-	            print("Question",j)
-	            j+=1
-	            break
-	        else:
-	            j+=1
+		j = 0 
+		while j<len(Q_s):
+			if Q[i] == Q_s[j]:
+				print("Question",j + 1)
+				j+=1
+				Q_s[j-1] = -1
+				break
+			else:
+				j+=1
     
 def cutR5(num,img):
     ans=[]
@@ -290,11 +294,11 @@ def Q7():
 	df2 = pd.read_csv('grading.csv')
 
 	for i in range(len(df)):
-		if df2.loc[i,'Grading'] > 30:
+		if df2.loc[i,'Grading'] > 25:
 			df.loc[i,'Pass/Fall'] = "Pass"
 		else:
 			df.loc[i,'Pass/Fall'] = "Fall"
-	df.to_csv('student.csv',heading=False)
+	df.to_csv('student.csv')
 
 
 def split_image(image):
